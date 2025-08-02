@@ -1,23 +1,17 @@
 import mongoose from "mongoose";
-import appointment from "./appointment";
 
 const Schema = mongoose.Schema;
 
 const prescriptionSchema = new Schema({
     
-    prescriptionId: {
-        type: String,
-        required: [true, "Prescription Id is required"],
-    },
-
     date: {
         type: Date,
         required: [true, "Date is required"]
     },
 
-    appointment: {
+    appointmentId: {
         type: String,
-        required: [true, "Appointment is required"],
+        required: [true, "Appointment ID is required"],
     },
 
     medicine: {
