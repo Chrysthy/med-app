@@ -27,10 +27,35 @@ const saveAppointment = async ({ date, doctorId, pacientId }) => {
 
 }
 
+const updateAppointment = async (id, { date, doctorId, pacientId }) => {
 
+    try {
 
-const appointmentRepository = {
+        return await Appointment.findByIdAndUpdate(id, { date, doctorId, pacientId }, { new: true });
 
+    } catch (error) {
+        throw new Error(error);
+
+    }
 }
 
-export default appointmentRepository;
+const deleteAppointment = async (id) => {
+
+    try {
+
+        return await Appointment.findByIdAndDelete(id);
+
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+const appointmentRepository = {
+    getAllAppointments,
+    getAppointments,
+    saveAppointment,
+    updateAppointment,
+    deleteAppointment
+}
+
+export default appointmentRepository; ''
