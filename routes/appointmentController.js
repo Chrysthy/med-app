@@ -17,7 +17,7 @@ router.get('/appointments', async (req, res) => {
     }
 })
 
-router.get('/appointment/:id', async (req, res) => {
+router.get('/getAppointment/:id', async (req, res) => {
 
     const { id } = req.params;
 
@@ -33,7 +33,7 @@ router.get('/appointment/:id', async (req, res) => {
     }
 })
 
-router.post('/postappointment', async (req, res) => {
+router.post('/postAppointment', async (req, res) => {
 
     const { date, doctorId, pacientId } = req.body;
 
@@ -56,7 +56,7 @@ router.put('/appointments/:id', async (req, res) => {
 
     try {
 
-        const appointment = await appointmentService.updateAppointment({ id, date, doctorId, pacientId });
+        const appointment = await appointmentService.updateAppointment(id, { date, doctorId, pacientId });
 
         res.send(appointment);
 
@@ -80,8 +80,25 @@ router.delete('/appointments/:id', async (req, res) => {
         console.log(error);
         res.status(500).send(error);
     }
+
 })
 
+router.put('/reschedule/:id', async (req, res) => {
+    const { id } = req.params;
+    const { date } = req.body;
+
+    try {
+        let appointment = await appointmentService.getAppointment(id);
+        appointment.date = date;
+
+        appointment = await appointmentService.updateAppointment(id, { date });
+        res.send(appointment);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
 
 
 export default router;
