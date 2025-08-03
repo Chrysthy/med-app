@@ -9,9 +9,10 @@ const { json, urlencoded } = pkg;
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
+app.use('/', router);
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 
 });
 
-app.use('/', router);

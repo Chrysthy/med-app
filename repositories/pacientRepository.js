@@ -18,8 +18,8 @@ const getPacient = async (id) => {
 
 const savePacient = async ({ name, birthDate, email, phone }) => {
     try {
-        const pacient = new pacient({ name, birthDate, email, phone });
-        return await pacient.save();
+        const newPacient = new pacient({ name, birthDate, email, phone });
+        return await newPacient.save();
     } catch (error) {
         throw new Error(error);
     }

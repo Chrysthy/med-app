@@ -18,8 +18,8 @@ const getPrescription = async (id) => {
 
 const savePrescription = async ({ date, appointmentId, medicine, dosage, instructions }) => {
     try{
-        const prescription = new prescription({ date, appointmentId, medicine, dosage, instructions });
-        return await prescription.save();
+        const newPrescription = new prescription({ date, appointmentId, medicine, dosage, instructions });
+        return await newPrescription.save();
     }catch(error){
         throw new Error(error);
     }
