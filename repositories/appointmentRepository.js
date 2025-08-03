@@ -4,7 +4,7 @@ const getAllAppointments = async () => {
     return await Appointment.find();
 }
 
-const getAppointments = async (id) => {
+const getAppointment = async (id) => {
     try {
         return await Appointment.findById(id);
 
@@ -52,7 +52,7 @@ const deleteAppointment = async (id) => {
 
 const appointmentRepository = {
     getAllAppointments,
-    getAppointments,
+    getAppointment,
     saveAppointment,
     updateAppointment,
     deleteAppointment
