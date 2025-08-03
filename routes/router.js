@@ -1,7 +1,7 @@
 import express from 'express';
 import appointmentController from './appointmentController.js'
 import doctorController from './doctorController.js'
-import patientController from './patientController.js';
+import pacientController from './pacientController.js';
 import prescriptionController from './prescriptionController.js';
 
 let router = express.Router();
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.use('/', appointmentController);
 router.use('/', doctorController);
-router.use('/', patientController);
+router.use('/', pacientController);
 router.use('/', prescriptionController);
 
 export default router;
