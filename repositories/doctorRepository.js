@@ -19,9 +19,9 @@ const getDoctor = async (id) => {
 const saveDoctor = async ({ name, login, password, medicalSpecialty, medicalRegistration, email, phone }) => {
 
     try {
-        const doctor = new doctor({ name, login, password, medicalSpecialty, medicalRegistration, email, phone });
+        const newDoctor = new doctor({ name, login, password, medicalSpecialty, medicalRegistration, email, phone });
 
-        return await doctor.save();
+        return await newDoctor.save();
 
     } catch (error) {
         throw new Error(error);
