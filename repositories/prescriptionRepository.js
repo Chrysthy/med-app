@@ -1,47 +1,47 @@
 import prescription from "../models/prescription.js"
 
 const getAllPrescriptions = async () => {
-    try{
+    try {
         return await prescription.find();
-    }catch(error){
+    } catch (error) {
         throw new Error(error);
     }
 }
 
 const getPrescription = async (id) => {
-    try{
+    try {
         return await prescription.findById(id);
-    }catch(error){
+    } catch (error) {
         throw new Error(error);
     }
 }
 
 const savePrescription = async ({ date, appointmentId, medicine, dosage, instructions }) => {
-    try{
+    try {
         const newPrescription = new prescription({ date, appointmentId, medicine, dosage, instructions });
         return await newPrescription.save();
-    }catch(error){
+    } catch (error) {
         throw new Error(error);
     }
 }
 
 const updatePrescription = async (id, { date, appointmentId, medicine, dosage, instructions, file }) => {
-    try{
+    try {
         return await prescription.findByIdAndUpdate(id,
-             { date, appointmentId, medicine, dosage, instructions, file }, { new: true });
-    }catch(error){
+            { date, appointmentId, medicine, dosage, instructions, file }, { new: true });
+    } catch (error) {
         throw new Error(error);
     }
 }
 
 const deletePrescription = async (id) => {
-    try{
+    try {
         return await prescription.findByIdAndDelete(id);
-    }catch(error){
+    } catch (error) {
         throw new Error(error);
     }
 }
- 
+
 const prescriptionRepository = {
     getAllPrescriptions,
     getPrescription,
