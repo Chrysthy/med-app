@@ -1,6 +1,6 @@
 import pkg from 'body-parser';
 import express from 'express';
-import { router } from './routes/router.js';
+import router from './routes/router.js';
 import db from './database/database.js'
 
 const app = express();
