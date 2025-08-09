@@ -18,6 +18,12 @@ const pacientSchema = new Schema({
         type: String,
         required: [true, "Email is required"],
         unique: true,
+          validate: {
+            validator: function (v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            },
+            message: props => `${props.value} is not a valid email! Please use the following format: example@domain.com`
+        }
     },
 
     phone: {
