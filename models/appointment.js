@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import doctor from "./doctor";
-import pacient from "./pacient";
+import doctor from "./doctor.js";
+import pacient from "./pacient.js";
 
 const Schema = mongoose.Schema;
 
