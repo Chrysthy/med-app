@@ -36,6 +36,12 @@
 
 <br>
 
+## 💻 Project
+
+- This project was developed as part of a college course and implements authentication, file uploads, PDF generation, and database management.
+
+<br>
+
 ## 📜 License
 
 * This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
