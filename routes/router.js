@@ -6,6 +6,7 @@ import prescriptionController from './prescriptionController.js';
 import doctorService from '../services/doctorService.js';
 import bcrypt from 'bcrypt';
 import verifyToken from '../middleware/authMiddleware.js';
+import jwt from 'jsonwebtoken';
 
 let router = express.Router();
 router.get('/', (req, res) => {
