@@ -24,8 +24,14 @@
 
 ## 🛠 Technologies
 
-- NodeJS
-- JavaScript (Vanilla)  
+- Node.js — JavaScript runtime environment
+- Express — Web framework for Node.js
+- MongoDB — NoSQL database
+- Mongoose — ODM (Object Data Modeling) library for MongoDB
+- bcrypt — Password hashing library
+- jsonwebtoken (JWT) — Token-based authentication
+- Multer — Middleware for handling file uploads
+- PDFKit — Library for generating PDF documents
 - Git and GitHub
 
 <br>
