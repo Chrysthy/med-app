@@ -32,7 +32,12 @@
 
 ## ✨ Features
 
--
+- User authentication with password hashing (bcrypt)
+- JSON Web Token (JWT) for secure authorization
+- RESTful API built with Express
+- File uploads handling with Multer
+- PDF generation using PDFKit
+- MongoDB database integration via Mongoose
 
 <br>
 
