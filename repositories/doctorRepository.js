@@ -47,6 +47,7 @@ const deleteDoctor = async (id) => {
 
 }
 
+//login
 const getDoctorByLogin = async (login) => {
     try {
         return await doctor.findOne({ 'login': login })
