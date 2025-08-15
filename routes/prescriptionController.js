@@ -9,7 +9,7 @@ let router = express.Router();
 const storage = multer.diskStorage(
     {
         destination: function (req, file, cb) {
-            cb(null, './MediApp/prescriptions/');
+            cb(null, '../prescriptions/');
         },
         filename: function (req, file, cb) {
             cb(null, file.originalname);
