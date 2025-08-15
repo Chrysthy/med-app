@@ -2,6 +2,7 @@ import prescriptionRepository from "../repositories/prescriptionRepository.js";
 import appointmentService from "../services/appointmentService.js";
 import pacientService from "../services/pacientService.js";
 import doctorService from "../services/doctorService.js";
+
 import fs from 'fs';
 import PDFDocument from "pdfkit";
 
@@ -26,23 +27,31 @@ const deletePrescription = async (id) => {
     return await prescriptionRepository.deletePrescription(id);
 }
 
-const generatePrescriptionFile = async(prescription) => {
+const generatePrescriptionFile = async (prescription) => {
+    
     const appointment = await appointmentService.getAppointment(prescription.appointmentId);
+
     const pacient = await pacientService.getPacient(appointment.pacientId);
+
     const doctor = await doctorService.getDoctor(appointment.doctorId);
 
     const id = prescription._id;
-    const document = new PDFDocument({font: 'Courier'});
-    const filePath = "./prescriptions/"+ id + ".pdf";
+
+    const document = new PDFDocument({ font: 'Courier' });
+    
+    const filePath = "../prescriptions/"+ id + ".pdf";
 
     document.pipe(fs.createWriteStream(filePath));
+
     document.fontSize(16).text("Pacient Name: " + pacient.name);
+
     document.fontSize(16).text("Doctor Name: " + doctor.name);
 
     const recipe = "Medicine: " + prescription.medicine;
     document.fontSize(12).text(recipe);
 
     document.fontSize(12).text("Dose: " + prescription.dosage);
+    
     document.fontSize(12).text("Instructions: " + prescription.instructions);
 
     document.end();
