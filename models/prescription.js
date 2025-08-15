@@ -30,6 +30,10 @@ const prescriptionSchema = new Schema({
     createAt: {
         type: Date,
         default: Date.now,
+    },
+
+    file: {
+        type: String,
     }
 
 });
