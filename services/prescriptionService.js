@@ -20,7 +20,7 @@ const savePrescription = async ({ date, appointmentId, medicine, dosage, instruc
 
 const updatePrescription = async (id, { date, appointmentId, medicine, dosage, instructions, file }) => {
     return await prescriptionRepository.updatePrescription(id,
-         { date, appointmentId, medicine, dosage, instructions, file});
+        { date, appointmentId, medicine, dosage, instructions, file });
 }
 
 const deletePrescription = async (id) => {
@@ -28,7 +28,7 @@ const deletePrescription = async (id) => {
 }
 
 const generatePrescriptionFile = async (prescription) => {
-    
+
     const appointment = await appointmentService.getAppointment(prescription.appointmentId);
 
     const pacient = await pacientService.getPacient(appointment.pacientId);
@@ -38,8 +38,8 @@ const generatePrescriptionFile = async (prescription) => {
     const id = prescription._id;
 
     const document = new PDFDocument({ font: 'Courier' });
-    
-    const filePath = "../prescriptions/"+ id + ".pdf";
+
+    const filePath = "../prescriptions/" + id + ".pdf";
 
     document.pipe(fs.createWriteStream(filePath));
 
@@ -51,7 +51,7 @@ const generatePrescriptionFile = async (prescription) => {
     document.fontSize(12).text(recipe);
 
     document.fontSize(12).text("Dose: " + prescription.dosage);
-    
+
     document.fontSize(12).text("Instructions: " + prescription.instructions);
 
     document.end();
