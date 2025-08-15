@@ -1,5 +1,5 @@
 import express from "express";
-import PrescriptionService from "../services/prescriptionService.js";
+import prescriptionService from "../services/prescriptionService.js";
 import multer from 'multer';
 import process from "process";
 import path from "path";
@@ -22,10 +22,10 @@ const upload = multer({ storage: storage });
 router.post('/uploadPrescription/:id', upload.single('file'), async (req, res) => {
     try {
         const { id } = req.params;
-        let prescription = await PrescriptionService.getPrescription(id);
+        let prescription = await prescriptionService.getPrescription(id);
 
         const file = "../prescriptions/" + req.file.originalname;
-        prescription = await PrescriptionService.updatePrescription(id, { file });
+        prescription = await prescriptionService.updatePrescription(id, { file });
 
         return res.status(200).send(prescription);
 
@@ -41,7 +41,7 @@ router.get('/readPrescription/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const prescription = await PrescriptionService.getPrescription(id);
+        const prescription = await prescriptionService.getPrescription(id);
         let filePath = path.resolve(process.cwd() + "/../" + prescription.file);
         res.status(200).sendFile(filePath);
 
@@ -54,7 +54,7 @@ router.get('/readPrescription/:id', async (req, res) => {
 
 router.get('/prescriptions', async (req, res) => {
     try {
-        const prescriptions = await PrescriptionService.getAllPrescriptions();
+        const prescriptions = await prescriptionService.getAllPrescriptions();
         res.send(prescriptions);
     } catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ router.get('/prescriptions', async (req, res) => {
 router.get('/getPrescription/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const prescription = await PrescriptionService.getPrescription(id);
+        const prescription = await prescriptionService.getPrescription(id);
         res.send(prescription)
     } catch (error) {
         console.error(error);
@@ -76,7 +76,7 @@ router.get('/getPrescription/:id', async (req, res) => {
 router.post("/postPrescription", async function (req, res) {
     const { date, appointmentId, medicine, dosage, instructions } = req.body;
     try {
-        const prescription = await PrescriptionService.savePrescription({ date, appointmentId, medicine, dosage, instructions });
+        const prescription = await prescriptionService.savePrescription({ date, appointmentId, medicine, dosage, instructions });
         res.send(prescription);
     } catch (error) {
         console.error(error);
@@ -89,7 +89,7 @@ router.put('/prescriptions/:id', async (req, res) => {
     const { date, appointmentId, medicine, dosage, instructions } = req.body;
 
     try {
-        const prescription = await PrescriptionService.updatePrescription(id, { date, appointmentId, medicine, dosage, instructions });
+        const prescription = await prescriptionService.updatePrescription(id, { date, appointmentId, medicine, dosage, instructions });
         res.send(prescription);
     } catch (error) {
         console.error(error);
@@ -101,7 +101,7 @@ router.delete('/prescriptions/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const prescription = await PrescriptionService.deletePrescription(id);
+        const prescription = await prescriptionService.deletePrescription(id);
         res.send(prescription);
     } catch (error) {
         console.error(error);
@@ -112,7 +112,7 @@ router.delete('/prescriptions/:id', async (req, res) => {
 router.get('/generatePrescription/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const prescription = await PrescriptionService.getPrescription(id);
+        const prescription = await prescriptionService.getPrescription(id);
         let generatedPrescription = await PrescriptionService.generatePrescriptionFile(prescription);
 
         const file = "./src/prescriptions/" + id + ".pdf";
