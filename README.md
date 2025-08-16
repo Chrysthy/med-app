@@ -22,6 +22,10 @@
 
 <br>
 
+<img src=".github/Diagrama-Entidade-Relacionamento(DER).png" alt="gif do projeto">
+
+<br>
+
 ## 🛠 Technologies
 
 - Node.js — JavaScript runtime environment
@@ -55,14 +59,16 @@
 
 ## 📜 License
 
-* This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+- This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
 
 <br>
 
 ## 🫱🏻‍🫲🏻 Contributing
+
 <p> Contributions, issues, and feature requests are welcome! Please, feel free to do it! 😉 </p>
 
 <br>
 
 ## 🌟 Support
+
 <p> If you like this project, please give it a star ⭐ and share it with others! 😄 </p>
