@@ -12,6 +12,10 @@ export default function Home() {
 
                 <br></br>
 
+                <Link href="/doctor/list">List All Doctors</Link>
+
+                <br></br>
+                
                 <Link href="/pacient/create">Create New Pacient</Link>
 
                 <br></br>
