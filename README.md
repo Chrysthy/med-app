@@ -1,4 +1,4 @@
-<h1 align="center">Med App 👩🏻‍⚕️</h1>
+<h1 align="center">Med App 👩🏻‍⚕️🩺</h1>
 
 <p align="center">  
   <a href="#-screenshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
