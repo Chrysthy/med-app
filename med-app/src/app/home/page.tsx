@@ -7,22 +7,24 @@ export default function Home() {
         <>
             <h1>Welcome to the Home Page</h1>
 
+            <br />
+
             <div>
                 <Link href="/doctor/create">Create New Doctor</Link>
 
-                <br></br>
+                <br />
 
                 <Link href="/doctor/list">List All Doctors</Link>
 
-                <br></br>
-                
+                <br />
+
                 <Link href="/pacient/create">Create New Pacient</Link>
 
-                <br></br>
+                <br />
 
                 <Link href="/appointment/create">Create New Appointment</Link>
 
-                <br></br>
+                <br />
 
                 <Link href="/prescription/create">Create New Prescription</Link>
 
