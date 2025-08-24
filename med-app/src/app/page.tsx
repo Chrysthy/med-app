@@ -50,7 +50,7 @@ export default function Home() {
 
         <form className='w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md' onSubmit={authentication}>
 
-          <span className='font-bold text-blue-500 py-2 block text-3xl text-center'>Login</span>
+          <span className='font-bold py-2 block text-3xl text-center'>Login</span>
 
           <div className='w-full py-2'>
             <label htmlFor="" className='text-sm font-bold py-2 block'>Usuário</label>
