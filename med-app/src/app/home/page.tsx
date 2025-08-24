@@ -23,7 +23,7 @@ export default function Home() {
                         Create New Pacient
                     </Link>
 
-                    <Link href="/pacient/list" className="block text-center p-4 bg-purple-800 text-white rounded-md shadow hover:bg-purple-600 transition cursor-pointer">
+                    <Link href="/pacient/list" className="block text-center p-4 bg-purple-800 text-white rounded-md shadow hover:bg-purple-900 transition cursor-pointer">
                         List All Pacients
                     </Link>
 
