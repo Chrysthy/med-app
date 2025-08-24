@@ -46,37 +46,46 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
-        <form className='w-full' onSubmit={authentication}>
+        <form className='w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md' onSubmit={authentication}>
 
-          <span className='font-bold text-blue-500 py-2 block text-2xl'>Login</span>
+          <span className='font-bold text-blue-500 py-2 block text-3xl text-center'>Login</span>
 
           <div className='w-full py-2'>
-
             <label htmlFor="" className='text-sm font-bold py-2 block'>Usuário</label>
-            <input type='text' name='name' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setLogin(e.target.value)} />
-
+            <input
+              type='text'
+              name='name'
+              className='w-full border-[1px] border-gray-200 p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+              onChange={(e: any) => setLogin(e.target.value)}
+            />
           </div>
 
           <div className='w-full py-2'>
-
             <label htmlFor="" className='text-sm font-bold py-2 block'>Senha</label>
-            <input name='login' type="password" className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setPassword(e.target.value)} />
-
+            <input
+              name='login'
+              type="password"
+              className='w-full border-[1px] border-gray-200 p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+              onChange={(e: any) => setPassword(e.target.value)}
+            />
           </div>
 
           <div className='w-full py-2'>
-
-            <button className="w-20 p-2 text-white border-gray-200 border-[1px] rounded-sm bg-green-400">Login</button>
-
+            <button className="w-full p-2 text-white rounded-sm bg-green-500 hover:bg-green-600 transition-colors">
+              Login
+            </button>
           </div>
 
-          <div>
-            {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
-          </div>
+          {error && (
+            <div className="p-2 mt-2 text-white bg-red-500 rounded-sm border border-red-600">
+              {error}
+            </div>
+          )}
 
         </form>
+
 
       </div>
     </>
