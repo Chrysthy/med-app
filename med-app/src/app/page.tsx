@@ -73,7 +73,7 @@ export default function Home() {
           </div>
 
           <div className='w-full py-2'>
-            <button className="w-full p-2 text-white rounded-sm bg-green-500 hover:bg-green-600 transition-colors">
+            <button className="w-full p-2 text-white rounded-sm bg-green-500 hover:bg-green-600 transition-colors cursor-pointer">
               Login
             </button>
           </div>
