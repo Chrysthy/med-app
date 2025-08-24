@@ -23,8 +23,16 @@ export default function Home() {
                         Create New Pacient
                     </Link>
 
+                    <Link href="/pacient/list" className="block text-center p-4 bg-purple-500 text-white rounded-md shadow hover:bg-purple-600 transition cursor-pointer">
+                        List All Pacients
+                    </Link>
+
                     <Link href="/appointment/create" className="block text-center p-4 bg-yellow-500 text-white rounded-md shadow hover:bg-yellow-600 transition cursor-pointer">
                         Create New Appointment
+                    </Link>
+
+                    <Link href="/appointment/list" className="block text-center p-4 bg-yellow-500 text-white rounded-md shadow hover:bg-yellow-600 transition cursor-pointer">
+                        List All Appointments
                     </Link>
 
                     <Link href="/prescription/create" className="block text-center p-4 bg-orange-500 text-white rounded-md shadow hover:bg-orange-600 transition col-span-2 justify-self-center cursor-pointer">
