@@ -38,6 +38,11 @@ export default function Home() {
                     <Link href="/prescription/create" className="block text-center p-4 bg-orange-500 text-white rounded-md shadow hover:bg-orange-600 transition col-span-2 justify-self-center cursor-pointer">
                         Create New Prescription
                     </Link>
+
+                    <Link href="/prescription/upload" className="block text-center p-4 bg-orange-700 text-white rounded-md shadow hover:bg-orange-800 transition col-span-2 justify-self-center cursor-pointer">
+                        Upload Prescription
+                    </Link>
+
                 </div>
             </div>
 
