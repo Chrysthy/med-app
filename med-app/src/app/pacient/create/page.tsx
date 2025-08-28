@@ -50,31 +50,80 @@ export default function PacientCreate() {
 
     return (
         <>
-            <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/home">Voltar</Link>
-            <form className='w-full' onSubmit={addPacient}>
-                <span className='font-bold text-yellow-500 py-2 block underline text-2xl'>Formulário Criação de Paciente</span>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Nome</label>
-                    <input type='text' name='name' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setName(e.target.value)} />
+            <div className="w-full flex justify-end mt-6 pr-6">
+                <Link
+                    href="/home"
+                    className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
+                >
+                    Voltar
+                </Link>
+            </div>
+
+            <form className="w-full max-w-md mx-auto bg-white shadow-md rounded-lg p-6" onSubmit={addPacient}>
+                <span className="block mb-4 text-2xl font-bold text-yellow-600 underline">
+                    Formulário de Paciente
+                </span>
+
+                {/* Nome */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Nome</label>
+                    <input
+                        type="text"
+                        name="name"
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        onChange={(e) => setName(e.target.value)}
+                    />
                 </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Nascimento</label>
-                    <input type="date" name='birthDate' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setBirthDate(e.target.value)} />
+
+                {/* Data de Nascimento */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Nascimento</label>
+                    <input
+                        type="date"
+                        name="birthDate"
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        onChange={(e) => setBirthDate(e.target.value)}
+                    />
                 </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Email</label>
-                    <textarea name='email' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setEmail(e.target.value)} />
+
+                {/* Email */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                 </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Telefone</label>
-                    <textarea name='phone' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setPhone(e.target.value)} />
+
+                {/* Telefone */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Telefone</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
                 </div>
-                <div className='w-full py-2'>
-                    <button className="w-20 p-2 text-white border-gray-200 border-[1px] rounded-sm bg-green-400">Submit</button>
+
+                {/* Botão */}
+                <div className="mb-4">
+                    <button
+                        className="w-full py-2 text-white rounded-md bg-green-500 hover:bg-green-600 transition"
+                    >
+                        Enviar
+                    </button>
                 </div>
-                <div>
-                    {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
-                </div>
-            </form></>
+
+                {/* Erro */}
+                {error && (
+                    <div className="p-2 text-sm text-white rounded-md bg-red-500">
+                        {error}
+                    </div>
+                )}
+            </form>
+        </>
     )
 }
