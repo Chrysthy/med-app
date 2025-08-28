@@ -91,40 +91,74 @@ export default function AppointmentList() {
 
     return (
         <>
-            <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/home">Voltar</Link>
-            <table>
-                <thead>
-                    <tr>
-                        <td className='border border-slate-300'>Date</td>
-                        <td className='border border-slate-300 text-center'>Doctor</td>
-                        <td className='border border-slate-300 text-center'>Pacient</td>
-                    </tr>
-                </thead>
-
-                <tbody className="appointments" id="appointments">
-                    {!!appointments && appointments.map((appointment: any) => (
-                        <tr>
-                            <td className='border border-slate-300'>{appointment.date}</td>
-                            <td className='border border-slate-300 text-center'><label>{findDoctorName(appointment.doctorId)} </label></td>
-                            <td className='border border-slate-300 text-center'><label>{findPacientName(appointment.pacientId)} </label></td>
-                            <td className='border border-slate-300 text-center'>
-                                <button onClick={(e) => deleteAppointment(appointment._id)} className='bg-red-500 p-2 inline-block text-white text-sm'>Delete</button></td>
-                            <td className='border border-slate-300 text-center'>
-                                <Link href={`/appointment/edit/${appointment._id}`} className='bg-yellow-500 p-2 inline-block ml-3 text-white text-sm'>Edit</Link>
-                            </td>
-                            <td className='border border-slate-300 text-center'>
-                                <Link className='bg-green-500 p-2 inline-block ml-3 text-white text-sm' href={`/prescription/${appointment._id}/create`}>Create new prescription</Link>
-                            </td>
-                            <td className='border border-slate-300 text-center'>
-                                <Link className='bg-green-500 p-2 inline-block ml-3 text-white text-sm' href="/prescription/upload">Upload prescription</Link>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div>
-                {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
+            <div className="w-full flex justify-end mt-6 pr-6">
+                <Link
+                    href="/home"
+                    className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
+                >
+                    Voltar
+                </Link>
             </div>
+
+            <div className="mt-6 px-6 border-gray-300 rounded-md overflow-x-auto">
+                <table className="w-full border-collapse">
+                    <thead className="bg-gray-100 border-b border-gray-300">
+                        <tr>
+                            <th scope="col" className="p-2 border border-gray-300">Date</th>
+                            <th scope="col" className="p-2 border border-gray-300 text-center">Doctor</th>
+                            <th scope="col" className="p-2 border border-gray-300 text-center">Pacient</th>
+                            <th scope="col" className="p-2 border border-gray-300 text-center">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {!!appointments && appointments.map((appointment: any) => (
+                            <tr key={appointment._id}>
+                                <td className="p-2 border border-gray-300">{appointment.date}</td>
+                                <td className="p-2 border border-gray-300 text-center">{findDoctorName(appointment.doctorId)}</td>
+                                <td className="p-2 border border-gray-300 text-center">{findPacientName(appointment.pacientId)}</td>
+                                <td className="p-2 border border-gray-300 text-center">
+                                    <button
+                                        onClick={() => deleteAppointment(appointment._id)}
+                                        className="bg-red-500 px-3 py-1 rounded text-white text-sm"
+                                    >
+                                        Delete
+                                    </button>
+
+                                    <Link
+                                        href={`/appointment/edit/${appointment._id}`}
+                                        className="bg-yellow-500 px-3 py-1 ml-2 rounded text-white text-sm"
+                                    >
+                                        Edit
+                                    </Link>
+
+                                    <Link
+                                        href={`/prescription/${appointment._id}/create`}
+                                        className="bg-green-500 px-3 py-1 ml-2 rounded text-white text-sm"
+                                    >
+                                        Create new prescription
+                                    </Link>
+
+                                    <Link
+                                        href="/prescription/upload"
+                                        className="bg-green-500 px-3 py-1 ml-2 rounded text-white text-sm"
+                                    >
+                                        Upload prescription
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            {error && (
+                <div className="p-2 mt-2 rounded bg-red-400 text-white border border-gray-200">
+                    {error}
+                </div>
+            )}
+
+
         </>
     )
 }
