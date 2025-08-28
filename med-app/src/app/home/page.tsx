@@ -43,6 +43,10 @@ export default function Home() {
                         Upload Prescription
                     </Link>
 
+                    <Link href="/fake" className="block text-center p-4 bg-pink-500 text-white rounded-md shadow hover:bg-pink-600 transition col-span-2 justify-self-center cursor-pointer">
+                        Access Fake Api
+                    </Link>
+
                 </div>
             </div>
 
