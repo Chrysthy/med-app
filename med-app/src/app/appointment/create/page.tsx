@@ -77,31 +77,84 @@ export default function AppointmentCreate() {
 
     return (
         <>
-            <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/home">Voltar</Link>
-            <form className='w-full' onSubmit={addAppointment}>
-                <span className='font-bold text-yellow-500 py-2 block underline text-2xl'>Formulário Criação de Consultas</span>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Data</label>
-                    <input type='datetime-local' name='date' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setDate(e.target.value)} />
+            <div className="w-full flex justify-end mt-6 pr-6">
+                <Link
+                    href="/home"
+                    className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
+                >
+                    Voltar
+                </Link>
+            </div>
+
+            <form
+                className="w-full max-w-md mx-auto bg-white shadow-md rounded-lg p-6"
+                onSubmit={addAppointment}
+            >
+                <span className="block mb-4 text-2xl font-bold text-yellow-600 underline">
+                    Formulário de Consultas
+                </span>
+
+                {/* Data */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Data</label>
+                    <input
+                        type="datetime-local"
+                        name="date"
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                        onChange={(e: any) => setDate(e.target.value)}
+                    />
                 </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Médico</label>
-                    <select id="doctorId" onChange={(e: any) => setDoctorId(e.target.value)}>
-                        {doctors.map((doctor, i) => <option key={i} value={doctor._id}>{doctor.name}</option>)}
+
+                {/* Médico */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Médico</label>
+                    <select
+                        id="doctorId"
+                        onChange={(e: any) => setDoctorId(e.target.value)}
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                    >
+                        {doctors.map((doctor, i) => (
+                            <option key={i} value={doctor._id}>
+                                {doctor.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Paciente</label>
-                    <select id="pacientId" onChange={(e: any) => setPacientId(e.target.value)}>
-                        {pacients.map((pacient, i) => <option key={i} value={pacient._id}>{pacient.name}</option>)}
+
+                {/* Paciente */}
+                <div className="mb-4">
+                    <label className="block mb-1 text-sm font-bold">Paciente</label>
+                    <select
+                        id="pacientId"
+                        onChange={(e: any) => setPacientId(e.target.value)}
+                        className="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                    >
+                        {pacients.map((pacient, i) => (
+                            <option key={i} value={pacient._id}>
+                                {pacient.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
-                <div className='w-full py-2'>
-                    <button className="w-20 p-2 text-white border-gray-200 border-[1px] rounded-sm bg-green-400">Submit</button>
+
+                {/* Botão */}
+                <div className="mb-4">
+                    <button
+                        type="submit"
+                        className="w-full py-2 text-white rounded-md bg-green-500 hover:bg-green-600 transition"
+                    >
+                        Enviar
+                    </button>
                 </div>
-                <div>
-                    {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
-                </div>
-            </form></>
+
+                {/* Erro */}
+                {error && (
+                    <div className="p-2 text-sm text-white rounded-md bg-red-500">
+                        {error}
+                    </div>
+                )}
+            </form>
+
+        </>
     )
 }
