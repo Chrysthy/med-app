@@ -55,7 +55,7 @@ export default function PrescriptionCreate(params: any) {
         <>
             <div className="w-full flex justify-end mt-6 pr-6">
                 <Link
-                    href="/appointment/list"
+                    href="/home"
                     className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
                 >
                     Voltar
