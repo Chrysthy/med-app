@@ -53,31 +53,74 @@ export default function PrescriptionCreate(params: any) {
 
     return (
         <>
-            <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/appointment/list">Voltar</Link>
-            <form className='w-full' onSubmit={addPrescription}>
-                <span className='font-bold text-yellow-500 py-2 block underline text-2xl'>Formulário de prescrição</span>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Data da prescrição</label>
-                    <input type='date' name='date' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setDate(e.target.value)} />
-                </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Medicamento</label>
-                    <textarea name='medicine' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setMedicine(e.target.value)} />
-                </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Dosagem</label>
-                    <textarea name='dosage' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setDosage(e.target.value)} />
-                </div>
-                <div className='w-full py-2'>
-                    <label htmlFor="" className='text-sm font-bold py-2 block'>Instruções de uso</label>
-                    <textarea name='instructions' className='w-full border-[1px] border-gray-200 p-2 rounded-sm' onChange={(e: any) => setInstructions(e.target.value)} />
-                </div>
-                <div className='w-full py-2'>
-                    <button className="w-20 p-2 text-white border-gray-200 border-[1px] rounded-sm bg-green-400">Submit</button>
-                </div>
-                <div>
-                    {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
-                </div>
-            </form></>
+            <div className="w-full flex justify-end mt-6 pr-6">
+                <Link
+                    href="/appointment/list"
+                    className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
+                >
+                    Voltar
+                </Link>
+            </div>
+
+            <div className="mt-6 px-6 py-6 border border-gray-300 rounded-md shadow-sm bg-white max-w-3xl mx-auto">
+                <form className="w-full" onSubmit={addPrescription}>
+                    <h2 className="text-2xl font-bold text-yellow-500 underline mb-4">Formulário de prescrição</h2>
+
+                    <div className="w-full mb-4">
+                        <label className="block text-sm font-bold mb-2">Data da prescrição</label>
+                        <input
+                            type="date"
+                            name="date"
+                            className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                            onChange={(e: any) => setDate(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="w-full mb-4">
+                        <label className="block text-sm font-bold mb-2">Medicamento</label>
+                        <textarea
+                            name="medicine"
+                            className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                            onChange={(e: any) => setMedicine(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="w-full mb-4">
+                        <label className="block text-sm font-bold mb-2">Dosagem</label>
+                        <textarea
+                            name="dosage"
+                            className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                            onChange={(e: any) => setDosage(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="w-full mb-4">
+                        <label className="block text-sm font-bold mb-2">Instruções de uso</label>
+                        <textarea
+                            name="instructions"
+                            className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                            onChange={(e: any) => setInstructions(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="w-full flex justify-end">
+                        <button
+                            type="submit"
+                            className="w-28 p-2 text-white rounded-md bg-green-500 hover:bg-green-600 transition
+                            cursor-pointer"
+                        >
+                            Submit
+                        </button>
+                    </div>
+
+                    {error && (
+                        <div className="mt-4 p-2 rounded-md bg-red-400 text-white border border-gray-200">
+                            {error}
+                        </div>
+                    )}
+                </form>
+            </div>
+
+        </>
     )
 }
