@@ -36,35 +36,60 @@ export default function PacientList() {
 
     return (
         <>
-            <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/home">Voltar</Link>
-            <table>
-                <thead>
-                    <tr>
-                        <td className='border border-slate-300'>Nome</td>
-                        <td className='border border-slate-300 text-center'>Nascimento</td>
-                        <td className='border border-slate-300 text-center'>Email</td>
-                        <td className='border border-slate-300 text-center'>Telefone</td>
-                    </tr>
-                </thead>
-
-                <tbody className="pacients" id="pacients">
-                    {!!pacients && pacients.map((pacient: any) => (
-                        <tr>
-                            <td className='border border-slate-300'>{pacient.name}</td>
-                            <td className='border border-slate-300 text-center'>{pacient.birthDate}</td>
-                            <td className='border border-slate-300 text-center'>{pacient.email}</td>
-                            <td className='border border-slate-300 text-center'>{pacient.phone}</td>
-                            <td className='border border-slate-300 text-center'>
-                                <button onClick={(e) => deletePacient(pacient._id)} className='bg-red-500 p-2 inline-block text-white text-sm'>Delete</button></td>
-                            <td className='border border-slate-300 text-center'>
-                                <Link href={`/pacient/edit/${pacient._id}`} className='bg-yellow-500 p-2 inline-block ml-3 text-white text-sm'>Edit</Link></td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div>
-                {error && <div className="p-2 text-white border-gray-200 border-[1px] rounded-sm bg-red-400" style={{ color: 'red' }}>{error}</div>}
+            <div className="w-full flex justify-end mt-6 pr-6">
+                <Link
+                    href="/home"
+                    className="w-32 p-3 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-center"
+                >
+                    Voltar
+                </Link>
             </div>
+
+            <div className="overflow-x-auto mt-6 px-6">
+                <table className="w-full border-collapse border border-slate-300">
+                    <thead className="bg-gray-100">
+                        <tr>
+                            <th className="border border-slate-300 px-4 py-2 text-left">Nome</th>
+                            <th className="border border-slate-300 px-4 py-2 text-center">Nascimento</th>
+                            <th className="border border-slate-300 px-4 py-2 text-center">Email</th>
+                            <th className="border border-slate-300 px-4 py-2 text-center">Telefone</th>
+                            <th className="border border-slate-300 px-4 py-2 text-center">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="pacients" className="pacients">
+                        {!!pacients && pacients.map((pacient: any) => (
+                            <tr key={pacient._id} className="hover:bg-gray-50">
+                                <td className="border border-slate-300 px-4 py-2">{pacient.name}</td>
+                                <td className="border border-slate-300 px-4 py-2 text-center">{pacient.birthDate}</td>
+                                <td className="border border-slate-300 px-4 py-2 text-center">{pacient.email}</td>
+                                <td className="border border-slate-300 px-4 py-2 text-center">{pacient.phone}</td>
+                                <td className="border border-slate-300 px-4 py-2 text-center space-x-2">
+                                    <button
+                                        onClick={() => deletePacient(pacient._id)}
+                                        className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-white text-sm"
+                                    >
+                                        Delete
+                                    </button>
+                                    <Link
+                                        href={`/pacient/edit/${pacient._id}`}
+                                        className="bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded text-white text-sm"
+                                    >
+                                        Edit
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            {error && (
+                <div className="mt-3 p-2 text-sm text-white rounded bg-red-500">
+                    {error}
+                </div>
+            )}
+
         </>
     )
 }
