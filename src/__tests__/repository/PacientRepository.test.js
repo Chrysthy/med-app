@@ -1,5 +1,5 @@
-import Pacient from "../../models/Pacient.js";
-import PacientRepository from "../../repositories/PacientRepository.js";
+import Pacient from "../../models/pacient.js";
+import pacientRepository from "../../repositories/pacientRepository.js";
 import db from "../database/setup.js";
 
 
@@ -25,7 +25,7 @@ describe('Pacient Repository Test', () => {
 
         const pacient = new Pacient({ name, birthDate, email, phone });
 
-        const expectedPacient = await PacientRepository.savePacient(pacient);
+        const expectedPacient = await pacientRepository.savePacient(pacient);
 
         expect(expectedPacient.name).toBe(name);
         expect(expectedPacient.birthDate.toISOString()).toBe("1980-01-10T00:00:00.000Z");
@@ -41,7 +41,7 @@ describe('Pacient Repository Test', () => {
         const pacient = new Pacient({ name, birthDate, email, phone });
 
         expect(async () => {
-            await PacientRepository.savePacient(pacient);
+            await pacientRepository.savePacient(pacient);
         }).rejects.toThrow(new Error("ValidationError: name: Pacient name is required."));
 
     });
@@ -52,7 +52,7 @@ describe('Pacient Repository Test', () => {
         const pacient = new Pacient({ name, birthDate, email, phone });
 
         expect(async () => {
-            await PacientRepository.savePacient(pacient);
+            await pacientRepository.savePacient(pacient);
         }).rejects.toThrow(new Error("ValidationError: birthDate: Birth Date is required."));
 
     });
@@ -63,7 +63,7 @@ describe('Pacient Repository Test', () => {
         const pacient = new Pacient({ name, birthDate, email, phone });
 
         expect(async () => {
-            await PacientRepository.savePacient(pacient);
+            await pacientRepository.savePacient(pacient);
         }).rejects.toThrow(new Error("ValidationError: email: Email contact is required."));
 
     });
@@ -74,7 +74,7 @@ describe('Pacient Repository Test', () => {
         const pacient = new Pacient({ name, birthDate, email, phone });
 
         expect(async () => {
-            await PacientRepository.savePacient(pacient);
+            await pacientRepository.savePacient(pacient);
         }).rejects.toThrow(new Error("ValidationError: phone: Phone number is required."));
 
     });
@@ -85,7 +85,7 @@ describe('Pacient Repository Test', () => {
         const pacient = new Pacient({ name, birthDate, email, phone });
 
         expect(async () => {
-            await PacientRepository.savePacient(pacient);
+            await pacientRepository.savePacient(pacient);
         }).rejects.toThrow(new Error("ValidationError: phone: 11988772201 This is not a valid phone value. Please use the following format 99 91234-4567"));
 
     });
