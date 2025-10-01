@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">
+  Med App 👩🏻‍⚕️🩺 is an application developed during a university course. It features user authentication, file upload, PDF generation, and data management, all built on a RESTful API to provide secure and scalable services.
+</p>
+
+<p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=c920c9&labelColor=000000">
 </p>
 
